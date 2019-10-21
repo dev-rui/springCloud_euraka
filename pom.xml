@@ -17,6 +17,9 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR1</spring-cloud.version>
+        <!--docker镜像仓库-->
+        <docker.repository>red.sunny.cn</docker.repository>
+        <docker.registry.name>springcloud</docker.registry.name>
     </properties>
 
  <!--   <dependencies>
@@ -51,14 +54,46 @@
     </dependencyManagement>
 
 
-
-
-
-    <build>
+  <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                   <!--Dockerfile文件位置-->
+                   <!-- <dockerDirectory>${project.basedir}/src/main/java/docker</dockerDirectory>-->
+                    <imageName>${docker.repository}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+                    <!--覆盖已存在的标签 镜像-->
+                    <forceTags>true</forceTags>
+                    <!--docker-server地址-->
+                    <dockerHost>http://192.168.36.129:2375</dockerHost>
+                    <baseImage>java:8</baseImage>
+                       <entryPoint>["java", "-jar","/${project.build.finalName}.jar"] </entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                   <!--上传仓库认证 需要在Maven settiing.xml中配置-->
+                    <serverId>Harbor-reg</serverId>
+                    <registryUrl>http://red.sunny.cn</registryUrl>
+                </configuration>
             </plugin>
         </plugins>
     </build>
