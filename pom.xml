@@ -60,7 +60,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
+           <!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.1.0</version>
@@ -74,12 +74,12 @@
                     </execution>
                 </executions>
                 <configuration>
-                   <!--Dockerfile文件位置-->
-                   <!-- <dockerDirectory>${project.basedir}/src/main/java/docker</dockerDirectory>-->
+                   &lt;!&ndash;Dockerfile文件位置&ndash;&gt;
+                   &lt;!&ndash; <dockerDirectory>${project.basedir}/src/main/java/docker</dockerDirectory>&ndash;&gt;
                     <imageName>${docker.repository}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
-                    <!--覆盖已存在的标签 镜像-->
+                    &lt;!&ndash;覆盖已存在的标签 镜像&ndash;&gt;
                     <forceTags>true</forceTags>
-                    <!--docker-server地址-->
+                    &lt;!&ndash;docker-server地址&ndash;&gt;
                     <dockerHost>http://192.168.36.129:2375</dockerHost>
                     <baseImage>java:8</baseImage>
                        <entryPoint>["java", "-jar","/${project.build.finalName}.jar"] </entryPoint>
@@ -90,11 +90,11 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                   <!--上传仓库认证 需要在Maven settiing.xml中配置-->
+                   &lt;!&ndash;上传仓库认证 需要在Maven settiing.xml中配置&ndash;&gt;
                     <serverId>Harbor-reg</serverId>
                     <registryUrl>http://red.sunny.cn</registryUrl>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
