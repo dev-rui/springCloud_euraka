@@ -79,7 +79,7 @@
                     <imageName>${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
                  <!--   覆盖已存在的标签 镜像-->
                     <forceTags>true</forceTags>
-                    <dockerHost>http://192.168.36.129:2375</dockerHost>
+                    <dockerHost>http://129.211.74.124:2375</dockerHost>
                     <baseImage>java:8</baseImage>
                        <entryPoint>["java", "-jar","/${project.build.finalName}.jar"] </entryPoint>
                     <resources>

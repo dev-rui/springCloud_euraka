@@ -63,34 +63,6 @@ services:
       - 18182:8182
     depends_on:
       - eureka-server
-  eureka-consumer:
-    image: springcloud/eureka-consumer:0.0.1-SNAPSHOT
-    container_name: eureka-consumer
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 8183:8183
-    depends_on:
-      - eureka-server
-      - rabbitmq
-  eureka-consumer1:
-    image: springcloud/eureka-consumer:0.0.1-SNAPSHOT
-    container_name: eureka-consumer1
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 18183:8183
-    depends_on:
-      - eureka-server
-      - rabbitmq
   eureka-consumer-fegin:
     image: springcloud/eureka-consumer-feign:0.0.1-SNAPSHOT
     container_name: eureka-consumer-feign
