@@ -50,19 +50,19 @@ services:
       - 8182:8182
     depends_on:
       - eureka-server
-  eureka-client1:
-    image: springcloud/eureka-client:0.0.1-SNAPSHOT
-    container_name: eureka-client1
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 18182:8182
-    depends_on:
-      - eureka-server
+#  eureka-client1:
+#    image: springcloud/eureka-client:0.0.1-SNAPSHOT
+#    container_name: eureka-client1
+#    restart: always
+#    volumes:
+#      - /etc/localtime:/etc/localtime
+#    networks:
+#      - springcloud-network
+#    dns_search: .
+#    ports:
+#      - 18182:8182
+#    depends_on:
+#      - eureka-server
   eureka-consumer-fegin:
     image: springcloud/eureka-consumer-feign:0.0.1-SNAPSHOT
     container_name: eureka-consumer-feign
@@ -77,35 +77,35 @@ services:
     depends_on:
       - eureka-server
       - rabbitmq
-  eureka-consumer-fegin1:
-    image: springcloud/eureka-consumer-feign:0.0.1-SNAPSHOT
-    container_name: eureka-consumer-feign1
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 18184:8184
-    depends_on:
-      - eureka-server
-      - rabbitmq
-  turbine:
-    image: springcloud/turbine:0.0.1-SNAPSHOT
-    container_name: turbine
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 8187:8187
-      - 8287:8287
-    depends_on:
-      - eureka-server
-      - rabbitmq
+#  eureka-consumer-fegin1:
+#    image: springcloud/eureka-consumer-feign:0.0.1-SNAPSHOT
+#    container_name: eureka-consumer-feign1
+#    restart: always
+#    volumes:
+#      - /etc/localtime:/etc/localtime
+#    networks:
+#      - springcloud-network
+#    dns_search: .
+#    ports:
+#      - 18184:8184
+#    depends_on:
+#      - eureka-server
+#      - rabbitmq
+#  turbine:
+#    image: springcloud/turbine:0.0.1-SNAPSHOT
+#    container_name: turbine
+#    restart: always
+#    volumes:
+#      - /etc/localtime:/etc/localtime
+#    networks:
+#      - springcloud-network
+#    dns_search: .
+#    ports:
+#      - 8187:8187
+#      - 8287:8287
+#    depends_on:
+#      - eureka-server
+#      - rabbitmq
   api-gateway:
     image: springcloud/api-gateway:0.0.1-SNAPSHOT
     container_name: api-gateway
@@ -119,17 +119,17 @@ services:
       - 8188:8188
     depends_on:
       - eureka-server
-  hystrix-dashboard:
-    image: springcloud/hystrix-dashboard:0.0.1-SNAPSHOT
-    container_name: hystrix-dashboard
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime
-    networks:
-      - springcloud-network
-    dns_search: .
-    ports:
-      - 8186:8186
+#  hystrix-dashboard:
+#    image: springcloud/hystrix-dashboard:0.0.1-SNAPSHOT
+#    container_name: hystrix-dashboard
+#    restart: always
+#    volumes:
+#      - /etc/localtime:/etc/localtime
+#    networks:
+#      - springcloud-network
+#    dns_search: .
+#    ports:
+#      - 8186:8186
 networks:
   springcloud-network:
     external: false
