@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Dalston.SR1</spring-cloud.version>
+        <spring-cloud.version>Dalston.SR5</spring-cloud.version>
         <!--docker镜像仓库-->
         <docker.repository>red.sunny.cn</docker.repository>
         <docker.registry.name>springcloud</docker.registry.name>
