@@ -60,7 +60,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-           <plugin>
+          <!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.1.0</version>
@@ -74,10 +74,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                   <!--Dockerfile文件位置-->
-                   <!-- <dockerDirectory>${project.basedir}/src/main/java/docker</dockerDirectory>-->
+                   &lt;!&ndash;Dockerfile文件位置&ndash;&gt;
+                   &lt;!&ndash; <dockerDirectory>${project.basedir}/src/main/java/docker</dockerDirectory>&ndash;&gt;
                     <imageName>${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
-                 <!--   覆盖已存在的标签 镜像-->
+                 &lt;!&ndash;   覆盖已存在的标签 镜像&ndash;&gt;
                     <forceTags>true</forceTags>
                     <dockerHost>http://129.211.74.124:2375</dockerHost>
                     <baseImage>java:8</baseImage>
@@ -90,7 +90,7 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
